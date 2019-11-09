@@ -1,0 +1,33 @@
+.container
+{
+    box-sizing: border-box;
+    display: grid;    
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 8fr;  
+    height: 100vh;  
+    grid-gap: 10px;
+  
+    background:whitesmoke;
+    grid-template-areas: 
+        "a a"      
+         "b c"  
+        
+}
+
+.header
+{
+  grid-area: a;      
+    background-color: grey
+}
+
+.userform
+{   grid-area: b;      
+  
+}
+
+.userProfile
+{   grid-area: c;           
+   
+}
+
+
