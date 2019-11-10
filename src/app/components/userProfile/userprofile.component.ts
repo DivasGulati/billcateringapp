@@ -1,6 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import {Userinfo} from '../../models/userinfo';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'userprofile',
@@ -9,12 +11,27 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class userprofileComponent implements OnInit {
 
+  userinfo: Userinfo[];
+
+  constructor(private userService: UserService) { }
+  
   displayedColumns: string[] = ['firstname', 'lastname', 'username', 'email','description','meal','department'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   ngOnInit() {
+   
+    this.userService.getAllProfiles().subscribe( 
+    
+      (userinfo: Userinfo[]) => 
+      {
+        this.userinfo = userinfo;
+        console.log(this.userinfo);
+      }
+    
+    );
+
     this.dataSource.paginator = this.paginator;
   }
 }
