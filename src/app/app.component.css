@@ -6,7 +6,8 @@
     grid-template-rows: 1.5fr 10fr;  
      
     grid-gap: 10px;
-  
+    background-color: whitesmoke;
+    height: 100vh;
  
     grid-template-areas: 
          "t a a a a"      

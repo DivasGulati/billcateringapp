@@ -1,64 +1,56 @@
-
-
-        <form class="example-container" [formGroup]="userinfoFormGroup" autocomplete="off"  (ngSubmit)="handleSubmit(userinfoFormGroup.value)" fxLayout="column wrap"
-        fxLayoutAlign="center center" fxLayoutGap="10px">
+<form class="example-container" [formGroup]="userinfoFormGroup" #formDirective="ngForm" autocomplete="off"
+    (ngSubmit)="handleSubmit(userinfoFormGroup.value,formDirective)" fxLayout="column wrap"
+    fxLayoutAlign="center center" fxLayoutGap="10px">
 
     <mat-form-field>
-        <input matInput placeholder="Enter your email" formControlName="email" name="email" required >            
+        <input matInput placeholder="Enter your email" formControlName="email" name="email" required>
     </mat-form-field>
-    <mat-error *ngIf="(userinfoFormGroup.get('email').hasError('required')  || userinfoFormGroup.get('email').hasError('email'))  && userinfoFormGroup.controls['email']?.touched">Please provide a valid email</mat-error> 
-      
+    <mat-error
+        *ngIf="(userinfoFormGroup.get('email').hasError('required')  || userinfoFormGroup.get('email').hasError('email'))  && userinfoFormGroup.controls['email']?.touched">
+        Please provide a valid email</mat-error>
 
     <mat-form-field>
-        <input matInput placeholder="First Name" name="firstname"  formControlName="firstname" required>        
+        <input matInput placeholder="First Name" name="firstname" formControlName="firstname" required>
     </mat-form-field>
-    <mat-error *ngIf="userinfoFormGroup.get('firstname').hasError('required') && userinfoFormGroup.controls['firstname']?.touched">Please provide a valid firstname</mat-error>   
+    <mat-error
+        *ngIf="userinfoFormGroup.get('firstname').hasError('required') && userinfoFormGroup.controls['firstname']?.touched">
+        Please provide a valid firstname</mat-error>
 
     <mat-form-field>
-        <input matInput placeholder="Last Name" name="lastname"  formControlName="lastname" required>
+        <input matInput placeholder="Last Name" name="lastname" formControlName="lastname" required>
     </mat-form-field>
-    <mat-error *ngIf="userinfoFormGroup.get('lastname').hasError('required') && userinfoFormGroup.controls['lastname']?.touched">Please provide a valid lastname</mat-error>   
+    <mat-error
+        *ngIf="userinfoFormGroup.get('lastname').hasError('required') && userinfoFormGroup.controls['lastname']?.touched">
+        Please provide a valid lastname</mat-error>
 
     <mat-form-field>
-            <input matInput placeholder="Display Name" name="displayname"  formControlName="displayname" required>
-        </mat-form-field>
-        <mat-error *ngIf="userinfoFormGroup.get('displayname').hasError('required') && userinfoFormGroup.controls['displayname']?.touched">Please provide a valid lastname</mat-error>   
-    
-    <mat-form-field>
-        <textarea matInput placeholder="Description" name="description"  formControlName="description" required ></textarea>
+        <input matInput placeholder="Display Name" name="displayname" formControlName="displayname" required>
     </mat-form-field>
-    <mat-error *ngIf="userinfoFormGroup.get('description').hasError('required') && userinfoFormGroup.controls['description']?.touched">Please provide a valid description</mat-error>   
-
+    <mat-error
+        *ngIf="userinfoFormGroup.get('displayname').hasError('required') && userinfoFormGroup.controls['displayname']?.touched">
+        Please provide a valid lastname</mat-error>
 
     <mat-form-field>
-        <textarea matInput placeholder="Meal Preference" name="meal"  formControlName="meal" required></textarea>
+        <textarea matInput placeholder="Meal Preference" name="description" formControlName="description"
+            required></textarea>
     </mat-form-field>
-    <mat-error *ngIf="userinfoFormGroup.get('meal').hasError('required') && userinfoFormGroup.controls['meal']?.touched">Please provide a valid meal preference</mat-error>   
+    <mat-error
+        *ngIf="userinfoFormGroup.get('description').hasError('required') && userinfoFormGroup.controls['description']?.touched">
+        Please provide a valid description</mat-error>
 
     <mat-form-field>
-            <input matInput placeholder="Team" name="team"  formControlName="team" required>
-        </mat-form-field>
-        <mat-error *ngIf="userinfoFormGroup.get('team').hasError('required' && userinfoFormGroup.controls['team']?.touched)">Please provide a valid team name</mat-error>   
-
-        
-    <mat-form-field>
-        <input matInput placeholder="Department" name="department"  formControlName="department" required>
+        <input matInput placeholder="Team" name="team" formControlName="team" required>
     </mat-form-field>
-    <mat-error *ngIf="userinfoFormGroup.get('department').hasError('requireddepartment') && userinfoFormGroup.controls['department']?.touched">Please provide a valid department</mat-error>   
+    <mat-error
+        *ngIf="userinfoFormGroup.get('team').hasError('required' && userinfoFormGroup.controls['team']?.touched)">Please
+        provide a valid team name</mat-error>
 
-
+    <mat-form-field>
+        <input matInput placeholder="Department" name="department" formControlName="department" required>
+    </mat-form-field>
+    <mat-error
+        *ngIf="userinfoFormGroup.get('department').hasError('requireddepartment') && userinfoFormGroup.controls['department']?.touched">
+        Please provide a valid department</mat-error>
     <button mat-flat-button color="warn" [disabled]="!userinfoFormGroup.valid" type="submit">Save</button>
 
- </form>
-
-
-
-
-
-<!-- Copyright 2019 Google LLC. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at http://angular.io/license -->
-
-
-<!--
-    Email, First Name, Last Name, Display Name, Description of Meal preference, Department and Team-->
+</form>

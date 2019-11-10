@@ -1,10 +1,10 @@
 export interface Userinfo {
-    firstName: number;
-    secondName: string;
-    userName: string;
-    mealPrefrence:  string;
+    firstName: string;
+    lastName: string;
+    displayName: string;
     description: string;
     email: string;
     department: string;
+    team: string;
   }
   

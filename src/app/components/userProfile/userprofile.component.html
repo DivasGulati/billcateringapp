@@ -4,21 +4,21 @@
                 <table mat-table [dataSource]="dataSource">
               
                   <!-- Position Column -->
-                  <ng-container matColumnDef="firstname">
-                    <th mat-header-cell *matHeaderCellDef> Firstname </th>
-                    <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
+                  <ng-container matColumnDef="firstName">
+                    <th mat-header-cell *matHeaderCellDef> First Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
                   </ng-container>
               
                   <!-- Name Column -->
-                  <ng-container matColumnDef="lastname">
-                    <th mat-header-cell *matHeaderCellDef> Lastname </th>
-                    <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+                  <ng-container matColumnDef="lastName">
+                    <th mat-header-cell *matHeaderCellDef> Last Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
                   </ng-container>
               
                   <!-- Weight Column -->
-                  <ng-container matColumnDef="username">
-                    <th mat-header-cell *matHeaderCellDef> Username </th>
-                    <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+                  <ng-container matColumnDef="displayName">
+                    <th mat-header-cell *matHeaderCellDef> Display Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.displayName}} </td>
                   </ng-container>
               
                   <!-- Symbol Column -->
@@ -29,13 +29,13 @@
 
                      <!-- Symbol Column -->
                      <ng-container matColumnDef="description">
-                            <th mat-header-cell *matHeaderCellDef> Description </th>
+                            <th mat-header-cell *matHeaderCellDef> Meal Preferences </th>
                             <td mat-cell *matCellDef="let element"> {{element.description}} </td>
                           </ng-container>
 
-                          <ng-container matColumnDef="meal">
-                                <th mat-header-cell *matHeaderCellDef> Meal Preferences </th>
-                                <td mat-cell *matCellDef="let element"> {{element.meal}} </td>
+                          <ng-container matColumnDef="team">
+                                <th mat-header-cell *matHeaderCellDef> Team </th>
+                                <td mat-cell *matCellDef="let element"> {{element.team}} </td>
                               </ng-container>
 
 

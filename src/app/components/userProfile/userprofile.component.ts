@@ -1,8 +1,8 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatTableDataSource} from '@angular/material/table';
-import {Userinfo} from '../../models/userinfo';
-import {UserService} from '../../services/user.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { Userinfo } from '../../models/userinfo';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'userprofile',
@@ -12,51 +12,34 @@ import {UserService} from '../../services/user.service';
 export class userprofileComponent implements OnInit {
 
   userinfo: Userinfo[];
-
+  dataSource: MatTableDataSource<Userinfo>;
   constructor(private userService: UserService) { }
-  
-  displayedColumns: string[] = ['firstname', 'lastname', 'username', 'email','description','meal','department'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  displayedColumns: string[] = ['firstName', 'lastName', 'displayName', 'description', 'email', 'department', 'team'];
 
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   ngOnInit() {
-   
-    this.userService.getAllProfiles().subscribe( 
-    
-      (userinfo: Userinfo[]) => 
-      {
-        this.userinfo = userinfo;
-        console.log(this.userinfo);
-      }
-    
-    );
 
+    this.userService.refreshNeeded$
+      .subscribe(
+        () => this.getProfileData()
+      );
+
+    this.getProfileData();
     this.dataSource.paginator = this.paginator;
   }
+
+  private getProfileData() {
+    this.userService.getAllProfiles().subscribe(
+
+      (userinfo: Userinfo[]) => {
+        this.userinfo = userinfo;
+        this.dataSource = new MatTableDataSource<Userinfo>(this.userinfo);
+        this.dataSource.paginator = this.paginator;
+        console.log(this.userinfo);
+      }
+
+    );
+  }
 }
-
-export interface PeriodicElement {
-  firstname: string;
-  lastname: string;
-  username: string;
-  email: string;
-  description: string;
-  meal: string;
-  department: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  //{position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {firstname: 'aa', lastname: 'Hydrogen',username: 'Hydrogen', email: 'Hydrogen', description: 'Hydrogen', meal: 'H',department: 'ss'},
-  {firstname: 'aa', lastname: 'Hydrogen',username: 'Hydrogen', email: 'Hydrogen', description: 'Hydrogen', meal: 'H',department: 'ss'},
-  {firstname: 'aa', lastname: 'Hydrogen',username: 'Hydrogen', email: 'Hydrogen', description: 'Hydrogen', meal: 'H',department: 'ss'},
-  {firstname: 'aa', lastname: 'Hydrogen',username: 'Hydrogen', email: 'Hydrogen', description: 'Hydrogen', meal: 'H',department: 'ss'},
-  {firstname: 'aa', lastname: 'Hydrogen',username: 'Hydrogen', email: 'Hydrogen', description: 'Hydrogen', meal: 'H',department: 'ss'},
-  {firstname: 'aa', lastname: 'Hydrogen',username: 'Hydrogen', email: 'Hydrogen', description: 'Hydrogen', meal: 'H',department: 'ss'}
-];
-
-
-/**  Copyright 2019 Google LLC. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at http://angular.io/license */
