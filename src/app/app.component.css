@@ -1,7 +1,5 @@
 
-@media screen and (max-width: 800px) {
-
-  .container
+ .container
 {
       display: grid;    
     grid-template-columns: 1fr 1fr 1fr 2fr 3fr;
@@ -16,10 +14,13 @@
          "b b b b b" 
          "c c c c c" ;
 }
-}
 
-@media screen and (min-width: 1400px) {
-.container
+
+
+
+@media screen and (min-width: 1000px) {
+
+  .container
 {
     box-sizing: border-box;
     display: grid;    
@@ -36,7 +37,9 @@
   
         
 }
+ 
 }
+
 
 .title
 {
