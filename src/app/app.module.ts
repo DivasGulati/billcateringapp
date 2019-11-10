@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
 import {CdkTableModule} from '@angular/cdk/table';
 import {MatTableModule} from '@angular/material/table';
@@ -20,7 +21,7 @@ import { userprofileComponent } from './components/userProfile/userprofile.compo
 import {UserService} from './services/user.service';
 
 @NgModule({
-  imports: [BrowserModule, BrowserAnimationsModule, FormsModule, MatButtonModule,MatCardModule,HttpClientModule,
+  imports: [BrowserModule, BrowserAnimationsModule, FormsModule, MatButtonModule,MatCardModule,HttpClientModule, MatToolbarModule,
     MatInputModule, MatCheckboxModule, MatSelectModule, ReactiveFormsModule,CdkTableModule,MatTableModule,MatPaginatorModule],
   declarations: [AppComponent, userformComponent, userprofileComponent,],
   providers: [UserService],

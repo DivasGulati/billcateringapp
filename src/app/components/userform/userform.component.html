@@ -1,7 +1,13 @@
+
+
 <form class="example-container" [formGroup]="userinfoFormGroup" #formDirective="ngForm" autocomplete="off"
     (ngSubmit)="handleSubmit(userinfoFormGroup.value,formDirective)" fxLayout="column wrap"
     fxLayoutAlign="center center" fxLayoutGap="10px">
 
+    <mat-toolbar color="warn">
+            <span>User Sign Up</span>
+          </mat-toolbar>
+   
     <mat-form-field>
         <input matInput placeholder="Enter your email" formControlName="email" name="email" required>
     </mat-form-field>
