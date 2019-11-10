@@ -1,11 +1,10 @@
 
-
 <form class="example-container" [formGroup]="userinfoFormGroup" #formDirective="ngForm" autocomplete="off"
-    (ngSubmit)="handleSubmit(userinfoFormGroup.value,formDirective)" fxLayout="column wrap"
+    (ngSubmit)="handleSubmit(formDirective)" fxLayout="column wrap"
     fxLayoutAlign="center center" fxLayoutGap="10px">
 
     <mat-toolbar color="warn">
-            <span>User Sign Up</span>
+            <span>User Sign Up</span>   
           </mat-toolbar>
    
     <mat-form-field>
